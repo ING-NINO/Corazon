@@ -3,24 +3,19 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Para Alejandra ❤️</title>
+    <title>Para Alejandra 💗</title>
 
-    <!-- Fuente romántica -->
     <link
       href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap"
       rel="stylesheet"
     />
 
     <style>
-      * {
-        box-sizing: border-box;
-      }
-
       body {
         margin: 0;
         height: 100vh;
         overflow: hidden;
-        background: linear-gradient(135deg, #1e3c72, #2a5298, #ff6a88, #ff99ac);
+        background: linear-gradient(135deg, #ff6a88, #ff99ac);
         background-size: 400% 400%;
         animation: gradientShift 15s ease infinite;
         font-family: "Segoe UI", sans-serif;
@@ -45,12 +40,12 @@
 
       h1 {
         font-family: "Dancing Script", cursive;
-        font-size: 3rem;
+        font-size: 8vw;
         color: #fff;
-        text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
-        margin-bottom: 20px;
-        z-index: 2;
+        text-shadow: 2px 2px 10px rgba(255, 200, 220, 0.9);
+        margin-bottom: 5vh;
         animation: textPulse 2s infinite;
+        text-align: center;
       }
 
       @keyframes textPulse {
@@ -58,7 +53,7 @@
           transform: scale(1);
         }
         50% {
-          transform: scale(1.05);
+          transform: scale(1.08);
         }
         100% {
           transform: scale(1);
@@ -67,19 +62,17 @@
 
       .glass {
         position: relative;
-        width: 340px;
-        height: 340px;
+        width: 320px;
+        height: 320px;
         background: rgba(255, 255, 255, 0.1);
         border-radius: 30px;
         backdrop-filter: blur(14px);
-        -webkit-backdrop-filter: blur(14px);
         border: 1px solid rgba(255, 255, 255, 0.2);
         box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
         display: flex;
         align-items: center;
         justify-content: center;
         animation: float 4s ease-in-out infinite;
-        z-index: 1;
       }
 
       @keyframes float {
@@ -92,49 +85,80 @@
         }
       }
 
-      .heart {
+      .heart-shape {
         position: relative;
-        width: 160px;
-        height: 160px;
-        background: #f70e0e;
+        width: 180px;
+        height: 180px;
+        background: #ff416c;
         transform: rotate(-45deg);
-        animation: pulse 1.5s infinite;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 0 40px rgba(255, 0, 80, 0.8);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        animation: heartbeat 1.5s infinite;
       }
 
-      .heart::before,
-      .heart::after {
-        content: "";
-        position: absolute;
-        width: 160px;
-        height: 160px;
-        border-radius: 50%;
-        background: #f70e0e;
-      }
-
-      .heart::before {
-        top: -80px;
-        left: 0;
-      }
-
-      .heart::after {
-        top: 0;
-        left: 80px;
-      }
-
-      @keyframes pulse {
-        0% {
+      @keyframes heartbeat {
+        0%,
+        100% {
           transform: rotate(-45deg) scale(1);
         }
         50% {
           transform: rotate(-45deg) scale(1.1);
         }
-        100% {
-          transform: rotate(-45deg) scale(1);
+      }
+
+      .heart-shape::before,
+      .heart-shape::after {
+        content: "";
+        position: absolute;
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        background: #ff416c;
+      }
+
+      .heart-shape::before {
+        top: -90px;
+        left: 0;
+      }
+
+      .heart-shape::after {
+        top: 0;
+        left: 90px;
+      }
+
+      .heart-content {
+        transform: rotate(45deg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+      }
+
+      .center-text {
+        font-family: "Dancing Script", cursive;
+        font-size: 2.2rem;
+        color: #fff;
+        text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+        animation: textPulse 1.5s infinite;
+        pointer-events: none;
+        position: relative;
+        transform: rotate(-45deg); /* 👈 corrige la inclinación */
+        text-align: center;
+      }
+
+      @keyframes glow {
+        from {
+          text-shadow: 0 0 10px #fff, 0 0 20px #ff6a88, 0 0 30px #ff99ac;
+        }
+        to {
+          text-shadow: 0 0 20px #fff, 0 0 40px #ff6a88, 0 0 60px #ff99ac;
         }
       }
 
-      /* Corazones cayendo */
       .falling-heart {
         position: absolute;
         top: -30px;
@@ -154,16 +178,48 @@
           opacity: 0;
         }
       }
+
+      /* Corazones flotando en el fondo */
+      .floating-heart {
+        position: absolute;
+        font-size: 2rem;
+        opacity: 0.6;
+        animation: floatAround 8s ease-in-out infinite;
+        color: #fff;
+      }
+
+      @keyframes floatAround {
+        0% {
+          transform: translateY(0) translateX(0);
+          opacity: 0.4;
+        }
+        50% {
+          transform: translateY(-40px) translateX(20px);
+          opacity: 0.8;
+        }
+        100% {
+          transform: translateY(0) translateX(0);
+          opacity: 0.4;
+        }
+      }
     </style>
   </head>
   <body>
-    <h1>No se Haga Extrañar Alejandra 💗</h1>
+    <h1>No se Haga Extrañar</h1>
 
     <div class="glass">
-      <div class="heart"></div>
+      <div class="heart-shape">
+        <div class="heart-content">
+          <div class="center-text">Alejandra 💗</div>
+        </div>
+      </div>
     </div>
 
-    <!-- Corazones cayendo -->
+    <div class="floating-heart" style="top: 10%; left: 15%">💖</div>
+    <div class="floating-heart" style="top: 20%; right: 20%">💘</div>
+    <div class="floating-heart" style="bottom: 15%; left: 25%">💞</div>
+    <div class="floating-heart" style="bottom: 20%; right: 30%">💕</div>
+
     <script>
       function createFallingHeart() {
         const heart = document.createElement("div");
